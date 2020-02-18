@@ -2,6 +2,7 @@ import time
 import pandas as pd
 import numpy as np
 
+#Three cities files used for analysis: Chicago, New York City, and Washington D.C
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
@@ -21,7 +22,7 @@ def get_filters():
     while city not in ("chicago","new york city","washington"):
         city = input("Please enter a valid input. \nWould you like to see data in Chicago, New York City or Washington? ").lower()
 
-    
+
 
     # TO DO: get user input for month (all, january, february, ... , june)
     month = input("Which month? January, February, March, April, May, June or all? Please type out the full month name. ").lower()
@@ -34,7 +35,7 @@ def get_filters():
     while day not in ("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday", "all"):
         day = input("Please enter a vaild input. \nWhich day? Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday, or all? Please type out the full day of week name. ").lower()
 
-    
+
     print('-'*40)
     return city, month, day
 
@@ -131,7 +132,7 @@ def trip_duration_stats(df):
     start_time = time.time()
 
     # TO DO: display total travel time
-    
+
     seconds = df['Trip Duration'].sum()
     days = seconds //(24 * 3600)
     seconds = seconds % (24 * 3600)
@@ -166,8 +167,8 @@ def user_stats(df):
     print('The counts of user types:')
     print(user_type)
     print()
-    
-    # TO DO: Display counts of gender   
+
+    # TO DO: Display counts of gender
     if 'Gender' not in df:
         print('No gender information for this city.\n')
     else:
@@ -199,21 +200,21 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
-        
-        
-        #ask the users if they want to see 5 lines of raw data, display that data if the answer is 'yes', 
+
+
+        #ask the users if they want to see 5 lines of raw data, display that data if the answer is 'yes',
         #and continue these prompts and displays until the user says 'no'.
         i = 0
         raw = input("\nWould you like to see first 5 rows of raw data; type 'yes' or 'no'?\n").lower()
         pd.set_option('display.max_columns',200)
 
-        while True:            
+        while True:
             if raw == 'no':
                 break
             print(df[i:i+5])
             raw = input('\nWould you like to see next rows of raw data?\n').lower()
             i += 5
-        
+
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
