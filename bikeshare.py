@@ -5,7 +5,7 @@ import numpy as np
 #Three cities files used for analysis: Chicago, New York City, and Washington D.C
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
-              'washington': 'washington.csv' }
+              'washington': 'washington.csv'}
 
 def get_filters():
     """
@@ -19,7 +19,7 @@ def get_filters():
     print('Hello! Let\'s explore some US bikeshare data!')
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     city = input("Would you like to see data in Chicago, New York City or Washington? ").lower()
-    while city not in ("chicago","new york city","washington"):
+    while city not in ("chicago", "new york city", "washington"):
         city = input("Please enter a valid input. \nWould you like to see data in Chicago, New York City or Washington? ").lower()
 
 
@@ -167,8 +167,16 @@ def user_stats(df):
     print('The counts of user types:')
     print(user_type)
     print()
+<<<<<<< HEAD
 
     # TO DO: Display counts of gender
+||||||| merged common ancestors
+    
+    # TO DO: Display counts of gender   
+=======
+
+    # TO DO: Display counts of gender, exclude the city has no gender info
+>>>>>>> refactoring
     if 'Gender' not in df:
         print('No gender information for this city.\n')
     else:
@@ -200,13 +208,24 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
+<<<<<<< HEAD
 
 
         #ask the users if they want to see 5 lines of raw data, display that data if the answer is 'yes',
+||||||| merged common ancestors
+        
+        
+        #ask the users if they want to see 5 lines of raw data, display that data if the answer is 'yes', 
+=======
+
+
+        #ask the users if they want to see 5 lines of raw data, display that
+        #data if the answer is 'yes',
+>>>>>>> refactoring
         #and continue these prompts and displays until the user says 'no'.
         i = 0
         raw = input("\nWould you like to see first 5 rows of raw data; type 'yes' or 'no'?\n").lower()
-        pd.set_option('display.max_columns',200)
+        pd.set_option('display.max_columns', 200)
 
         while True:
             if raw == 'no':
