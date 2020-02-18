@@ -4,7 +4,7 @@ import numpy as np
 
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
-              'washington': 'washington.csv' }
+              'washington': 'washington.csv'}
 
 def get_filters():
     """
@@ -18,7 +18,7 @@ def get_filters():
     print('Hello! Let\'s explore some US bikeshare data!')
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     city = input("Would you like to see data in Chicago, New York City or Washington? ").lower()
-    while city not in ("chicago","new york city","washington"):
+    while city not in ("chicago", "new york city", "washington"):
         city = input("Please enter a valid input. \nWould you like to see data in Chicago, New York City or Washington? ").lower()
 
 
@@ -201,11 +201,12 @@ def main():
         user_stats(df)
 
 
-        #ask the users if they want to see 5 lines of raw data, display that data if the answer is 'yes',
+        #ask the users if they want to see 5 lines of raw data, display that
+        #data if the answer is 'yes',
         #and continue these prompts and displays until the user says 'no'.
         i = 0
         raw = input("\nWould you like to see first 5 rows of raw data; type 'yes' or 'no'?\n").lower()
-        pd.set_option('display.max_columns',200)
+        pd.set_option('display.max_columns', 200)
 
         while True:
             if raw == 'no':
